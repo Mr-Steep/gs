@@ -6,6 +6,9 @@ module.exports = {
 		"./app/**/*.{js,ts,jsx,tsx}",
 		"./mdx-components.tsx",
 		"content/**/*.mdx",
+		'./pages/**/*.{js,ts,jsx,tsx,mdx}',
+		'./components/**/*.{js,ts,jsx,tsx,mdx}',
+		"./node_modules/@tremor/**/*.{js,ts,jsx,tsx}", // Tremor module
 	],
 
 	theme: {
@@ -106,6 +109,6 @@ module.exports = {
 	},
 	plugins: [
 		require("@tailwindcss/typography"),
-		require("tailwindcss-debug-screens"),
+		// require("tailwindcss-debug-screens"),
 	],
 };

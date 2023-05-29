@@ -2,12 +2,11 @@ import "../global.css";
 import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
-import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
 	title: {
-		default: "chronark.com",
-		template: "%s | chronark.com",
+		default: "globalstake.com",
+		template: "%s | globalstake.com",
 	},
 	description: "Software engineer at upstash.com and founder of planetfall.io",
 	openGraph: {
@@ -17,11 +16,11 @@ export const metadata: Metadata = {
 		url: "https://chronark.com",
 		siteName: "chronark.com",
 		images: [
-			{
-				url: "https://chronark.com/og.png",
-				width: 1920,
-				height: 1080,
-			},
+			// {
+			// 	url: "https://chronark.com/og.png",
+			// 	width: 1920,
+			// 	height: 1080,
+			// },
 		],
 		locale: "en-US",
 		type: "website",
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
 		},
 	},
 	twitter: {
-		title: "Chronark",
+		title: "GlobalStake",
 		card: "summary_large_image",
 	},
 	icons: {
@@ -61,14 +60,13 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+		<html lang="en"
+			  className={[inter.variable, calSans.variable].join(" ")}
+		>
 			<head>
-				<Analytics />
 			</head>
 			<body
-				className={`bg-black ${
-					process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-				}`}
+				className={` ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined}`}
 			>
 				{children}
 			</body>
