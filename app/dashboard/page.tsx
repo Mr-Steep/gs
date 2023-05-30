@@ -1,3 +1,4 @@
+'use client'
 import { Card, Metric, Text, Flex, Grid, Title, BarList } from '@tremor/react';
 import Chart from './chart';
 import {Navigation} from './../components/nav'
