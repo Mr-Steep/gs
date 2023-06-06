@@ -54,22 +54,15 @@ const calSans = LocalFont({
 	variable: "--font-calsans",
 });
 
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
+export default function RootLayout({children}: {children: React.ReactNode}) {
+	console.log(children)
 	return (
-		<html lang="en"
-			  className={[inter.variable, calSans.variable].join(" ")}
-		>
-			<head>
-			</head>
-			<body
-				className={` ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined}`}
-			>
-				{children}
-			</body>
+		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+		<head>
+		</head>
+		<body className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined}`}>
+		{children}
+		</body>
 		</html>
 	);
 }
