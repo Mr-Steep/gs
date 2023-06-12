@@ -19,6 +19,7 @@ export function Navigation() {
 		{ name: 'Management', href: '/management', current: false },
 		{ name: 'Contact', href: '/contact', current: false },
 		{ name: 'Referral Program', href: '/referral', current: false },
+		{ name: 'Roadmap', href: '/roadmap', current: false },
 		{ name: 'FAQ', href: '/faq', current: false },
 	]
 

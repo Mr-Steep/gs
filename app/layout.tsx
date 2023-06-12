@@ -5,12 +5,12 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: {
-		default: "globalstake.com",
-		template: "%s | globalstake.com",
+		default: "globalstake.net",
+		template: "%s | globalstake.net",
 	},
 	description: "Software engineer at upstash.com and founder of planetfall.io",
 	openGraph: {
-		title: "chronark.com",
+		title: "globalstake.net",
 		description:
 			"Software engineer at upstash.com and founder of planetfall.io",
 		url: "https://chronark.com",
@@ -54,22 +54,18 @@ const calSans = LocalFont({
 	variable: "--font-calsans",
 });
 
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
+export default function RootLayout({children}: {children: React.ReactNode}) {
+	console.log(children)
 	return (
-		<html lang="en"
-			  className={[inter.variable, calSans.variable].join(" ")}
-		>
-			<head>
-			</head>
-			<body
-				className={` ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined}`}
-			>
-				{children}
-			</body>
+		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+		<head>
+			<meta name="theme-color" content="black"/>
+			<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+			<meta name="viewport" content="width=device-width, viewport-fit=cover"/>
+		</head>
+			<body className={`bg-black overflow-hidden ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined}`}>
+		{children}
+		</body>
 		</html>
 	);
 }
