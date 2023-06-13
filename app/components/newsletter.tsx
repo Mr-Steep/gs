@@ -58,6 +58,7 @@ export default function Example() {
 
     const validateEmail = (email: string) => {
         if(email.length<5){
+            setEmail('')
             return false
         }
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
