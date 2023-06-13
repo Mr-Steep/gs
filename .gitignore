@@ -1,4 +1,5 @@
 .next
 .contentlayer
 .idea
+.gitignore
 node_modules
