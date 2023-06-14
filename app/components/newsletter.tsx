@@ -69,26 +69,32 @@ export default function Example() {
     return (
         <>
             <div className='conic m-2 '>
-                <label htmlFor="email-address" className="sr-only">
-                    Email address
-                </label>
-                <input
-                    id="email-address"
-                    name="email"
-                    type="email"
-                    autoComplete="off"
-                    className="w-full flex-auto rounded-3xl border-0 bg-white/5 px-4 py-4 focus:outline-none text-white text-sm "
-                    placeholder="Enter Your email"
-                    value={email}
-                    onChange={handleEmailChange}
-                />
-                <button
-                    type="submit"
-                    className="absolute rounded-3xl -ml-[7rem] mt-2 px-3.5 py-2 text-sm bg-white/5 text-white shadow-sm hover:bg-white/10 transform-gpu transition-transform duration-200 ease-in-out hover:scale-95 focus:scale-95 active:scale-95 "
-                    onClick={handleSubscribe}
+                <div
+                    className="w-full flex-auto rounded-3xl border-0 bg-white/5 "
+
                 >
-                    Subscribe
-                </button>
+                    <label htmlFor="email-address" className="sr-only">
+                        Email address
+                    </label>
+                    <input
+                        id="email-address"
+                        name="email"
+                        type="email"
+                        autoComplete="off"
+                        className="flex-auto w-3/4 rounded-l-3xl border-0 bg-transparent pl-4 py-4 pr-5 focus:outline-none text-white text-sm "
+                        placeholder="Enter Your email"
+                        value={email}
+                        onChange={handleEmailChange}
+                    />
+                    <button
+                        type="submit"
+                        className=" rounded-3xl w-1/4 px-3.5 -ml-[1rem] py-2 text-sm bg-white/5 text-white shadow-sm hover:bg-white/10 transform-gpu transition-transform duration-200 ease-in-out hover:scale-95 focus:scale-95 active:scale-95 "
+                        onClick={handleSubscribe}
+                    >
+                        Subscribe
+                    </button>
+                </div>
+
             </div>
             <div className="text-white text-xs ml-4 text-left absolute">
                 {additionalInformation}
