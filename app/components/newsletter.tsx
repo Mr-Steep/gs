@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const apiKey = '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';
+const apiKey = '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';
 const SUCCESS = 'Success! Please confirm your email';
 const INVALID_EMAIL = 'Invalid email. Please enter a valid email address.';
 
