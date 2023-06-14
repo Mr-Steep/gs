@@ -54,6 +54,7 @@ export default function Example() {
     };
 
     const handleEmailChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+        setAdditionalInformation('')
         setEmail(event.target.value);
     };
 
