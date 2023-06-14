@@ -54,7 +54,7 @@ const Countdown: React.FC<CountdownProps> = ({targetDate}) => {
     }, [targetDate]);
 
     return (
-        <div className="grid grid-flow-col auto-cols-max gap-5 text-center justify-between text-white">
+        <div className="grid grid-flow-col auto-cols-max gap-10 text-center justify-between text-white">
             <div className="flex flex-col">
     			<span className="countdown font-mono text-5xl">
     			  <span>{timeRemaining.days}</span>
