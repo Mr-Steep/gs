@@ -7,7 +7,6 @@ const INVALID_EMAIL = 'Invalid email. Please enter a valid email address.';
 export default function Example() {
     const [email, setEmail] = useState('');
     const [additionalInformation, setAdditionalInformation] = useState('');
-
     const handleSubscribe = async () => {
         if (!validateEmail(email)) {
             setAdditionalInformation(INVALID_EMAIL);
