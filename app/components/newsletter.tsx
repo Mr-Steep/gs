@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const apiKey = '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';
+const apiKey = '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';
 const SUCCESS = 'Success! Please confirm your email';
 const INVALID_EMAIL = 'Invalid email. Please enter a valid email address.';
 
@@ -87,7 +87,7 @@ export default function Example() {
                     />
                     <button
                         type="submit"
-                        className=" rounded-3xl w-1/4 px-3.5 -ml-[1rem] py-2 text-sm bg-white/5 text-white shadow-sm hover:bg-white/10 transform-gpu transition-transform duration-200 ease-in-out hover:scale-95 focus:scale-95 active:scale-95 "
+                        className=" rounded-3xl w-1/4 px-3 -ml-[1rem] py-2 text-sm bg-white/5 text-white shadow-sm hover:bg-white/10 transform-gpu transition-transform duration-200 ease-in-out hover:scale-95 focus:scale-95 active:scale-95 "
                         onClick={handleSubscribe}
                     >
                         Subscribe
