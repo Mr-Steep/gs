@@ -11,6 +11,7 @@ const navigation = [
 
 const TypingEffect: React.FC<{ text: string }> = ({ text }) => {
     const [displayedText, setDisplayedText] = useState('');
+    text = '  ' + text
 
     useEffect(() => {
         let index = 0;
@@ -80,7 +81,7 @@ export default function Home() {
             </div>
             <div className="mb-10 text-center animate-fade-in mt-3">
                 <h2 className="text-xs text-zinc-300">
-                    <TypingEffect text="   Time to change the vision for the financial world... / The Next Era of Cryptocurrency Is Coming Soon!" />
+                    <TypingEffect text="Time to change the vision for the financial world... / The Next Era of Cryptocurrency Is Coming Soon!" />
                 </h2>
             </div>
 
