@@ -48,15 +48,8 @@ export default async function createContact(req: NextApiRequest, res: NextApiRes
             html: html,
         };
 
-        transporter.sendMail(mailOptions)
-            .then(e => {
-                console.log(e)
-            })
-            .catch(e => {
-                console.log(e)
-            }
+        await transporter.sendMail(mailOptions)
 
-        );
 
         return res.status(200).json({ success: true, contact });
     } catch (error) {
