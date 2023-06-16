@@ -5,8 +5,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: {
-		default: "globalstake.com",
-		template: "%s | globalstake.com",
+		default: "globalstake.net",
+		template: "%s | globalstake.net",
 	},
 	description: "Software engineer at upstash.com and founder of planetfall.io",
 	openGraph: {

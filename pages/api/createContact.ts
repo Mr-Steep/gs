@@ -11,7 +11,8 @@ const prisma = new PrismaClient();
 const transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: Number(process.env.MAIL_PORT),
-    secureProtocol: 'TLSv1_method',
+    secure: true,
+    // secureProtocol: 'TLSv1_method',
     auth: {
         user: process.env.MAIL_USERNAME,
         pass: process.env.MAIL_PASSWORD,
@@ -23,7 +24,7 @@ export default async function createContact(req: NextApiRequest, res: NextApiRes
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
     const { email } = req.body;
-
+    console.log(process.env)
     try {
         const existingContact = await prisma.contact.findUnique({
             where: { email },
