@@ -7,12 +7,10 @@ import * as path from "path";
 
 const prisma = new PrismaClient();
 
-// Настройки SMTP-сервера для отправки писем
 const transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: Number(process.env.MAIL_PORT),
     secure: true,
-    // secureProtocol: 'TLSv1_method',
     auth: {
         user: process.env.MAIL_USERNAME,
         pass: process.env.MAIL_PASSWORD,
