@@ -1,6 +1,7 @@
 "use client";
 
 import React, {useState, useEffect} from 'react';
+import {getDictionary} from "@/get-dictionary";
 
 interface CountdownProps {
     targetDate: string;

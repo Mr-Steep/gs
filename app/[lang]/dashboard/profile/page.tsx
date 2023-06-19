@@ -1,5 +1,5 @@
 import {PhotoIcon, UserCircleIcon} from '@heroicons/react/24/solid'
-import {Navigation} from "@/app/components/nav";
+import {Navigation} from "@/app/[lang]/components/nav";
 export default function Profile() {
     return (
         <>

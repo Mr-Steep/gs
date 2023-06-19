@@ -1,9 +1,9 @@
 'use client'
 import {Card, Metric, Text, Flex, Grid, Title, BarList} from '@tremor/react';
 import Chart from './chart';
-import {Navigation} from './../components/nav'
-import Donut from "@/app/components/donut";
-import Status from "@/app/components/status";
+import {Navigation} from '../components/nav'
+import Donut from "@/app/[lang]/components/donut";
+import Status from "@/app/[lang]/components/status";
 
 const website = [
     {name: '/home', value: 1230},

@@ -1,0 +1,17 @@
+{
+  "title": {
+    "hello": "Hello World",
+    "button": "Subscribe",
+    "inputPlaceholder": "Enter Your email",
+    "text": "Time to change the vision for the financial world... / The Next Era of Cryptocurrency Is Coming Soon!",
+    "success": "Success! Please confirm your email",
+    "invalid": "Invalid email. Please enter a valid email address."
+  },
+  "counter": {
+    "days": "days",
+    "hours": "hours",
+    "min": "min",
+    "sec": "sec"
+  }
+
+}
