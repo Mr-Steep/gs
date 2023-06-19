@@ -43,8 +43,8 @@ export default async function createContact(req: NextApiRequest, res: NextApiRes
         const contact = await prisma.contact.create({
             data: {email}
         });
-        const _path = locale + '/welcome-email.html'
-        const filePath = path.join(process.cwd(), 'pages/mail', _path);
+        const _path = 'pages/mail/' + locale
+        const filePath = path.join(process.cwd(), _path, 'welcome-email.html');
 
         const html = fs.readFileSync(filePath, 'utf8');
         const mailOptions = {
