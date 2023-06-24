@@ -1,170 +1,196 @@
 'use client'
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useRouter, usePathname} from 'next/navigation';
-
+import {Fragment} from 'react'
+import {Disclosure, Menu, Transition} from '@headlessui/react'
+import {Bars3Icon, BellIcon, XMarkIcon} from '@heroicons/react/24/outline'
+import {useRouter, usePathname} from 'next/navigation';
+import SideBarRight from "@/app/[lang]/components/sideBarRight";
 
 
 const classes = [];
+
 function classNames(...classes: string[]) {
-	return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(' ')
+}
+
+function toggleRight() {
+    const sidebar = document.querySelector('.sidebarright');
+
+    // @ts-ignore
+    if (sidebar.classList.contains('right-0')) {
+        // @ts-ignore
+        sidebar.classList.remove('right-0');
+    } else {
+        // @ts-ignore
+        sidebar.classList.add('right-0');
+    }
 }
 
 export function Navigation() {
-	const pathname = usePathname();
+    const pathname = usePathname();
 
-	let navigation = [
-		{ name: 'Dashboard', href: '/dashboard', current: false },
-		{ name: 'Management', href: '/management', current: false },
-		{ name: 'Contact', href: '/contact', current: false },
-		{ name: 'Referral Program', href: '/referral', current: false },
-		{ name: 'Roadmap', href: '/roadmap', current: false },
-		{ name: 'FAQ', href: '/faq', current: false },
-	]
+    let navigation = [
+        {name: 'Dashboard', href: '/dashboard', current: false},
+        {name: 'Management', href: '/management', current: false},
+        {name: 'Contact', href: '/contact', current: false},
+        {name: 'Referral Program', href: '/referral', current: false},
+        {name: 'Roadmap', href: '/roadmap', current: false},
+        {name: 'FAQ', href: '/faq', current: false},
+    ]
 
-	navigation.forEach((route)=>{
-		if(route.href === pathname){
-			route.current = true
-		}
-	})
+    navigation.forEach((route) => {
+        if (route.href === pathname) {
+            route.current = true
+        }
+    })
 
-	return (
-		<Disclosure as="nav" className="bg-gray-800">
-			{({ open }) => (
-				<>
-					<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-						<div className="relative flex h-16 items-center justify-between">
-							<div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-								{/* Mobile menu button*/}
-								<Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-									<span className="sr-only">Open main menu</span>
-									{open ? (
-										<XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-									) : (
-										<Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-									)}
-								</Disclosure.Button>
-							</div>
-							<div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-								<div className="flex flex-shrink-0 items-center">
-									<img
-										className="block h-8 w-auto lg:hidden"
-										src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-										alt="Your Company"
-									/>
-									<img
-										className="hidden h-8 w-auto lg:block"
-										src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-										alt="Your Company"
-									/>
-								</div>
-								<div className="hidden sm:ml-6 sm:block">
-									<div className="flex space-x-4">
-										{navigation.map((item) => (
-											<a
-												key={item.name}
-												href={item.href}
-												className={classNames(
-													item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-													'rounded-md px-3 py-2 text-sm font-medium'
-												)}
-												aria-current={item.current ? 'page' : undefined}
-											>
-												{item.name}
-											</a>
-										))}
-									</div>
-								</div>
-							</div>
-							<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-								<button
-									type="button"
-									className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-								>
-									<span className="sr-only">View notifications</span>
-									<BellIcon className="h-6 w-6" aria-hidden="true" />
-								</button>
+    return (
+        <>
+            <nav
+                className="navbar-main relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start"
+                navbar-scroll="false">
+                <div className="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
+                    <nav>
+                        <ol className="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+                            <li className="text-sm pl-2 capitalize leading-normal text-white before:float-left before:pr-2 before:text-white before:content-['/']"
+                                aria-current="page">Dashboard
+                            </li>
+                        </ol>
+                        <h6 className="mb-0 font-bold text-white capitalize">Dashboard</h6>
+                    </nav>
 
-								{/* Profile dropdown */}
-								<Menu as="div" className="relative ml-3">
-									<div>
-										<Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-											<span className="sr-only">Open user menu</span>
-											<img
-												className="h-8 w-8 rounded-full"
-												src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-												alt=""
-											/>
-										</Menu.Button>
-									</div>
-									<Transition
-										as={Fragment}
-										enter="transition ease-out duration-100"
-										enterFrom="transform opacity-0 scale-95"
-										enterTo="transform opacity-100 scale-100"
-										leave="transition ease-in duration-75"
-										leaveFrom="transform opacity-100 scale-100"
-										leaveTo="transform opacity-0 scale-95"
-									>
-										<Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-											<Menu.Item>
-												{({ active }) => (
-													<a
-														href="/dashboard/profile"
-														className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-													>
-														Your Profile
-													</a>
-												)}
-											</Menu.Item>
-											<Menu.Item>
-												{({ active }) => (
-													<a
-														href="#"
-														className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-													>
-														Settings
-													</a>
-												)}
-											</Menu.Item>
-											<Menu.Item>
-												{({ active }) => (
-													<a
-														href="#"
-														className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-													>
-														Sign out
-													</a>
-												)}
-											</Menu.Item>
-										</Menu.Items>
-									</Transition>
-								</Menu>
-							</div>
-						</div>
-					</div>
+                    <div className="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
+                        <div className="flex items-center md:ml-auto md:pr-4">
+                            <div
+                                className="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease">
+                <span
+                    className="text-sm ease leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
+                  <i className="fas fa-search"></i>
+                </span>
+                                <input type="text"
+                                       className="pl-9 text-sm focus:shadow-primary-outline ease w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 dark:bg-slate-850 dark:text-white bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:transition-shadow"
+                                       placeholder="Type here..."/>
+                            </div>
+                        </div>
+                        <ul className="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
+                            <li className="flex items-center">
+                                <a href="./pages/sign-in.html"
+                                   className="block px-0 py-2 text-sm font-semibold text-white transition-all ease-nav-brand">
+                                    <i className="fa fa-user sm:mr-1"></i>
+                                    <span className="hidden sm:inline">Sign In</span>
+                                </a>
+                            </li>
+                            <li className="flex items-center pl-4 xl:hidden">
+                                <a className="block p-0 text-sm text-white transition-all ease-nav-brand  sidenav-trigger">
+                                    <div className="w-4.5 overflow-hidden">
+                                        <i className="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"></i>
+                                        <i className="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"></i>
+                                        <i className="ease relative block h-0.5 rounded-sm bg-white transition-all"></i>
+                                    </div>
+                                </a>
+                            </li>
+                            <li className="flex items-center px-4">
+                                <a onClick={() => toggleRight()}
+                                   className="p-0 text-sm text-white transition-all ease-nav-brand">
+                                    <i className="fixed-plugin-button-nav cursor-pointer fa fa-cog"></i>
+                                </a>
+                            </li>
 
-					<Disclosure.Panel className="sm:hidden">
-						<div className="space-y-1 px-2 pb-3 pt-2">
-							{navigation.map((item) => (
-								<Disclosure.Button
-									key={item.name}
-									as="a"
-									href={item.href}
-									className={classNames(
-										item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-										'block rounded-md px-3 py-2 text-base font-medium'
-									)}
-									aria-current={item.current ? 'page' : undefined}
-								>
-									{item.name}
-								</Disclosure.Button>
-							))}
-						</div>
-					</Disclosure.Panel>
-				</>
-			)}
-		</Disclosure>
-	)
+
+                            <li className="relative flex items-center pr-2">
+                                <p className="hidden transform-dropdown-show"></p>
+                                <a className="block p-0 text-sm text-white transition-all ease-nav-brand dropdown-trigger"
+                                   aria-expanded="false">
+                                    <i className="cursor-pointer fa fa-bell"></i>
+                                </a>
+
+                                <ul className="dropdown-menu text-sm transform-dropdown before:font-awesome before:leading-default before:duration-350 before:ease lg:shadow-3xl duration-250 min-w-44 before:sm:right-8 before:text-5.5 pointer-events-none absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent dark:shadow-dark-xl dark:bg-slate-850 bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block lg:cursor-pointer">
+                                    <li className="relative mb-2">
+                                        <a className="dark:hover:bg-slate-900 ease py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors"
+                                          >
+                                            <div className="flex py-1">
+                                                <div className="my-auto">
+                                                    <img src="/img/team-2.jpg"
+                                                         className="inline-flex items-center justify-center mr-4 text-sm text-white h-9 w-9 max-w-none rounded-xl"/>
+                                                </div>
+                                                <div className="flex flex-col justify-center">
+                                                    <h6 className="mb-1 text-sm font-normal leading-normal dark:text-white">
+                                                        <span className="font-semibold">New message</span> from Laur
+                                                    </h6>
+                                                    <p className="mb-0 text-xs leading-tight text-slate-400 dark:text-white/80">
+                                                        <i className="mr-1 fa fa-clock"></i>
+                                                        13 minutes ago
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li className="relative mb-2">
+                                        <a className="dark:hover:bg-slate-900 ease py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700"
+                                           >
+                                            <div className="flex py-1">
+                                                <div className="my-auto">
+                                                    <img src="/img/small-logos/logo-spotify.svg"
+                                                         className="inline-flex items-center justify-center mr-4 text-sm text-white bg-gradient-to-tl from-zinc-800 to-zinc-700 dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 h-9 w-9 max-w-none rounded-xl"/>
+                                                </div>
+                                                <div className="flex flex-col justify-center">
+                                                    <h6 className="mb-1 text-sm font-normal leading-normal dark:text-white">
+                                                        <span className="font-semibold">New album</span> by Travis Scott
+                                                    </h6>
+                                                    <p className="mb-0 text-xs leading-tight text-slate-400 dark:text-white/80">
+                                                        <i className="mr-1 fa fa-clock"></i>
+                                                        1 day
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li className="relative">
+                                        <a className="dark:hover:bg-slate-900 ease py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700"
+                                        >
+                                            <div className="flex py-1">
+                                                <div
+                                                    className="inline-flex items-center justify-center my-auto mr-4 text-sm text-white transition-all duration-200 ease-nav-brand bg-gradient-to-tl from-slate-600 to-slate-300 h-9 w-9 rounded-xl">
+                                                    <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
+                                                         xmlns="http://www.w3.org/2000/svg"
+                                                         xmlnsXlink="http://www.w3.org/1999/xlink">
+                                                        <title>credit-card</title>
+                                                        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                                                            <g transform="translate(-2169.000000, -745.000000)"
+                                                               fill="#FFFFFF" fillRule="nonzero">
+                                                                <g transform="translate(1716.000000, 291.000000)">
+                                                                    <g transform="translate(453.000000, 454.000000)">
+                                                                        <path className="color-background"
+                                                                              d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
+                                                                              opacity="0.593633743"></path>
+                                                                        <path className="color-background"
+                                                                              d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </svg>
+                                                </div>
+                                                <div className="flex flex-col justify-center">
+                                                    <h6 className="mb-1 text-sm font-normal leading-normal dark:text-white">Payment
+                                                        successfully completed</h6>
+                                                    <p className="mb-0 text-xs leading-tight text-slate-400 dark:text-white/80">
+                                                        <i className="mr-1 fa fa-clock"></i>
+                                                        2 days
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <SideBarRight toggleRight={toggleRight}/>
+        </>
+
+    )
 }
